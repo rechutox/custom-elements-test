@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Custom Element Test</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <h1>Custom Element Test</h1>
+  <hr>
+  <p>You can focus on this slider and use the <kbd>LeftArrow</kbd>, <kbd>+</kbd>, <kbd>RightArrow</kbd> and <kbd>-</kbd> to change the value, and <kbd>home</kbd> to jump to the minimum or <kbd>end</kbd> to the maximum.</p>
+  <rtx-slider id="slider" value="50" step="10" min="0" max="100"></rtx-slider>
+  <pre>Slider value: <span id="display">0</span></pre>
+
+</body>
+<!--script src="js/rtx-slider.js"></script-->
+<script src="js/rtx-slider.min.js"></script>
+<!--link rel="import" href="rtx-slider.html"-->
+<script defer>
+  var slider  = document.querySelector('#slider');
+  var display = document.querySelector('#display');
+
+  display.innerHTML = slider.value;
+  slider.on('changed', (value) => {
+    display.innerHTML = value;
+  });
+</script>
+</html>
